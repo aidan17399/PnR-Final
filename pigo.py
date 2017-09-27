@@ -122,7 +122,6 @@ class Pigo(object):
         self.turn_track -= enc
         time.sleep(1*(enc/18)+.4)
 
-
     def encB(self, enc):
         """sets an encoder, moves back, sleeps, (18 = 1 wheel rot)"""
         print('Moving '+str((enc/18))+ ' rotations(s) backwards')
@@ -270,7 +269,6 @@ class Pigo(object):
         print('My MIDPOINT is set to: '+ str(self.MIDPOINT))
         print('My safe stop distance is ' + str(self.SAFE_STOP_DIST) + 'cm')
         print('My hard stop distance is ' + str(self.HARD_STOP_DIST) + 'cm')
-
 
 def stop_now():
     try:

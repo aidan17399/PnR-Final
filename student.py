@@ -54,6 +54,7 @@ class Piggy(pigo.Pigo):
 
     # YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
+
         """executes a series of methods that add up to a compound dance"""
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
@@ -64,18 +65,18 @@ class Piggy(pigo.Pigo):
         self.stanky_leg()
         self.foward()
     def to_the_right(self):
-        for x in range(7):
+        for x in range(6):
             self.encR(10)
             self.encR(5)
 
     def to_the_left(self):
-        for x in range(8):
+        for x in range(6):
             self.encL(10)
             self.encL(5)
 
 
     def backwards(self):
-        for x in range(9):
+        for x in range(6):
             self.encB(6)
             self.encF(8)
 
@@ -85,10 +86,6 @@ class Piggy(pigo.Pigo):
     def stanky_leg(self):
         for x in range(10):
             self.encL(8)
-
-
-
-
 
 
     def nav(self):

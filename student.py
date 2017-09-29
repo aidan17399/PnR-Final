@@ -58,15 +58,44 @@ class Piggy(pigo.Pigo):
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
         self.to_the_right()
-        #self.to_the_left()
-        #self.now_kick()
-        #self.cha_cha()
-        #self.walk_it_by_yourself()
+        self.to_the_left()
+        self.backwards()
+        self.servo()
+        self.stanky_leg()
+        #self.foward()
+
 
         def to_the_right(self):
-            for x in range(3).
+            for x in range(3)
                 self.encR(10)
                 self.encr(5)
+
+        def to_the_left(self):
+            for x in range(3)
+                self.encL(10)
+                self.encL(5)
+
+
+        def backwards(self):
+            for x in range(2)
+                self.backwards(10)
+
+
+        def servo(self):
+            for x in range(3)
+                self.servo(4)
+
+        def stanky_leg(self):
+            for x in range(4)
+                self.encL(2)
+
+
+
+
+
+
+
+
     def nav(self):
         """auto pilots and attempts to maintain original heading"""
         logging.debug("Starting the nav method")

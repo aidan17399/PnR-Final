@@ -68,13 +68,13 @@ class Piggy(pigo.Pigo):
         for x in range(6):
             self.encR(10)
             self.encR(5)
-            self.Servo()
+            self.servo()
 
     def to_the_left(self):
         for x in range(6):
             self.encL(10)
             self.encL(5)
-            self.Servo()
+            self.servo()
 
 
     def backwards(self):
@@ -91,7 +91,7 @@ class Piggy(pigo.Pigo):
             self.encR(8)
 
 
-    def Servo(self):
+    def servo():
          for x in range(4):
              self.servo(25)
              self.servo(150)

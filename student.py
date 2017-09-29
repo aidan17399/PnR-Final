@@ -61,7 +61,7 @@ class Piggy(pigo.Pigo):
         self.to_the_right()
         self.to_the_left()
         self.backwards()
-        self.servo(130)
+        self.servo()
         self.stanky_leg()
         self.fwd()
     def to_the_right(self):
@@ -99,7 +99,7 @@ class Piggy(pigo.Pigo):
 
 
 
- def nav(self):
+    def nav(self):
         """auto pilots and attempts to maintain original heading"""
         logging.debug("Starting the nav method")
         print("-----------! NAVIGATION ACTIVATED !------------\n")

@@ -65,7 +65,7 @@ class Piggy(pigo.Pigo):
         self.stanky_leg()
         self.fwd()
     def to_the_right(self):
-        for x in range(6):
+        for x in range(7):
             self.encR(10)
             self.encR(5)
             self.servo()

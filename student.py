@@ -65,24 +65,24 @@ class Piggy(pigo.Pigo):
         #self.foward()
 
     def to_the_right(self):
-        for x in range(3):
+        for x in range(7):
             self.encR(10)
             self.encR(5)
 
     def to_the_left(self):
-        for x in range(3):
+        for x in range(8):
             self.encL(10)
             self.encL(5)
 
 
     def backwards(self):
-        for x in range(2):
+        for x in range(9):
             self.backwards(10)
 
 
 
     def stanky_leg(self):
-        for x in range(4):
+        for x in range(10):
             self.encL(2)
 
 

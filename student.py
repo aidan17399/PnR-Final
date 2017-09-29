@@ -78,7 +78,7 @@ class Piggy(pigo.Pigo):
 
 
     def backwards(self):
-        for x in range(6):
+        for x in range(7):
             self.encB(6)
             self.encF(8)
 

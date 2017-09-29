@@ -90,11 +90,11 @@ class Piggy(pigo.Pigo):
             self.encL(8)
             self.encR(8)
 
-    def servo(self):
+    #def servo(self):
 
 
 
-    def nav(self):
+   # def nav(self):
         """auto pilots and attempts to maintain original heading"""
         logging.debug("Starting the nav method")
         print("-----------! NAVIGATION ACTIVATED !------------\n")

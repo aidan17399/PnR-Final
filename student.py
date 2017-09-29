@@ -90,7 +90,8 @@ class Piggy(pigo.Pigo):
             self.encL(8)
             self.encR(8)
 
-     def Servo(self):
+
+    def Servo(self):
          for x in range(4):
              self.servo(25)
              self.servo(150)

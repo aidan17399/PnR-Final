@@ -86,6 +86,7 @@ class Piggy(pigo.Pigo):
     def stanky_leg(self):
         for x in range(10):
             self.encL(8)
+            self.encR(8)
 
 
     def nav(self):

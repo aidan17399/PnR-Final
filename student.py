@@ -86,7 +86,6 @@ class Piggy(pigo.Pigo):
         for x in range(10):
             self.encL(8)
 
-    def
 
 
 

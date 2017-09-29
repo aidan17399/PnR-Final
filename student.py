@@ -67,7 +67,7 @@ class Piggy(pigo.Pigo):
     def to_the_right(self):
         for x in range(3):
             self.encR(10)
-            self.encr(5)
+            self.encR(5)
 
     def to_the_left(self):
         for x in range(3):

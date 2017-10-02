@@ -30,9 +30,10 @@ class Piggy(pigo.Pigo):
         self.scan = [None] * 180
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
         # let's use an event-driven model, make a handler of sorts to listen for "events"
-        while True:
-            self.stop()
-            self.menu()
+        if __name__ == '__main__':
+            while True:
+                self.stop()
+                self.menu()
 
     def menu(self):
         """Displays menu dictionary, takes key-input and calls method"""
@@ -57,13 +58,14 @@ class Piggy(pigo.Pigo):
 
         """executes a series of methods that add up to a compound dance"""
         print("\n---- LET'S DANCE ----\n")
+
         ##### WRITE YOUR FIRST PROJECT HERE
         self.to_the_right()
         self.to_the_left()
         self.backwards()
         self.headbob()
         self.stanky_leg()
-
+        self.wheel()
 
     def to_the_right(self):
         for x in range(7):
@@ -77,14 +79,10 @@ class Piggy(pigo.Pigo):
             self.encL(5)
             self.servo(23)
 
-
     def backwards(self):
         for x in range(7):
             self.encB(6)
             self.encF(8)
-
-
-
 
     def stanky_leg(self):
         for x in range(10):
@@ -96,6 +94,12 @@ class Piggy(pigo.Pigo):
          for x in range(4):
              self.servo(25)
              self.servo(150)
+
+
+    def wheel(self):
+        for x in range(3):
+            encR(13)
+            encl(13)
 
 
 

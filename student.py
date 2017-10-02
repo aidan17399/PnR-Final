@@ -98,7 +98,6 @@ class Piggy(pigo.Pigo):
              self.servo(150)
 
 
-    last
 
     def nav(self):
         """auto pilots and attempts to maintain original heading"""

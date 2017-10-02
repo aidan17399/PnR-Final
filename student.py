@@ -61,9 +61,10 @@ class Piggy(pigo.Pigo):
         self.to_the_right()
         self.to_the_left()
         self.backwards()
-        self.servo()
+        self.headbob()
         self.stanky_leg()
-        self.fwd()
+
+
     def to_the_right(self):
         for x in range(7):
             self.encR(10)
@@ -91,13 +92,13 @@ class Piggy(pigo.Pigo):
             self.encR(8)
 
 
-    def servo():
+    def headbob(self):
          for x in range(4):
              self.servo(25)
              self.servo(150)
 
 
-
+    last
 
     def nav(self):
         """auto pilots and attempts to maintain original heading"""

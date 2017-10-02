@@ -65,39 +65,44 @@ class Piggy(pigo.Pigo):
         self.backwards()
         self.headbob()
         self.stanky_leg()
-        self.wheel()
+        self.moonwalk()
 
     def to_the_right(self):
-        for x in range(7):
+        for x in range(1):
             self.servo(30)
-            self.encR(10)
-            self.encR(5)
+            self.encR(80)
+            self.encR(80)
 
 
     def to_the_left(self):
-        for x in range(6):
+        for x in range(1):
             self.servo(130)
-            self.encL(10)
-            self.encL(5)
+            self.encL(80)
+            self.encL(80)
 
 
     def backwards(self):
-        for x in range(7):
+        for x in range(1):
             self.servo(130)
             self.servo(25)
-            self.encB(6)
-            self.encF(8)
+            self.encB(40)
+            self.encF(40)
 
     def stanky_leg(self):
-        for x in range(10):
-            self.encL(8)
-            self.encR(8)
+        for x in range(1):
+            self.encL(90)
+            self.encR(90)
 
 
     def headbob(self):
          for x in range(4):
              self.servo(25)
              self.servo(150)
+
+    def moonwalk(self):
+        for x in range(1):
+            self.encL(16)
+            self.encR(16)
 
 
 

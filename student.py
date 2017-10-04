@@ -62,7 +62,7 @@ class Piggy(pigo.Pigo):
 
         ##### WRITE YOUR FIRST PROJECT HERE
 
-        if(self.safety_check):
+        if(self.safety_check()):
              self.to_the_right()
              self.stanky_leg()
              self.moonwalk()

@@ -111,7 +111,7 @@ class Piggy(pigo.Pigo):
 
     @property
     def safety_check(self):
-        for x in range(4):
+      
             self.servo(self.MIDPOINT) # look straight ahead
             for loop in range(4):
                 if not self.is_clear():

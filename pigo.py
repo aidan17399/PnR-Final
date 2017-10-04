@@ -136,6 +136,8 @@ class Pigo(object):
             servo(val)
             time.sleep(.1)
         else:
+
+
             print('range outside of %d - %d' % (self.MIDPOINT-60, self.MIDPOINT+60))
 
     def dist(self):

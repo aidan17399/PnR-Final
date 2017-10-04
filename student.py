@@ -19,7 +19,8 @@ class Piggy(pigo.Pigo):
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 90
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
-        self.STOP_DIST = 30
+        self.SAFE_STOP_DIST = 30
+        self.HARD_STOP_DIST = 15
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 140
         # YOU DECIDE: What left motor power helps straighten your fwd()?
@@ -60,12 +61,13 @@ class Piggy(pigo.Pigo):
         print("\n---- LET'S DANCE ----\n")
 
         ##### WRITE YOUR FIRST PROJECT HERE
-        self.to_the_right()
-        self.to_the_left()
-        self.backwards()
-        self.headbob()
-        self.stanky_leg()
-        self.moonwalk()
+
+        if(self.safety_check):
+             self.to_the_right()
+             self.stanky_leg()
+             self.moonwalk()
+             self.to_the_left()
+             self.headbob()
 
     def to_the_right(self):
         for x in range(1):
@@ -95,16 +97,38 @@ class Piggy(pigo.Pigo):
 
 
     def headbob(self):
-         for x in range(4):
+         for x in range(1):
              self.servo(25)
              self.servo(150)
 
     def moonwalk(self):
         for x in range(1):
-            self.fwd(19)
+            self.backwards()
             self.encL(16)
             self.encR(16)
+            self.stop()
 
+
+    @property
+    def safety_check(self):
+        for x in range(4):
+            self.servo(self.MIDPOINT) # look straight ahead
+            for x in range(4):
+                if self.dist() < self.SAFE_STOP_DIST:
+                 return False
+            if False:
+                self.encR(3)
+                if not self.is_clear():
+                    print("not working")
+                    return False
+
+
+
+
+
+            # turn 90 degree
+            # scan again
+            # loop 3 times
 
 
 
@@ -118,7 +142,7 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
 
 
-####################################################
+    ####################################################
 ############### STATIC FUNCTIONS
 
 def error():

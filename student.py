@@ -19,7 +19,7 @@ class Piggy(pigo.Pigo):
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 90
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
-        self.SAFE_STOP_DIST = 30
+        self.SAFE_STOP_DIST = 20
         self.HARD_STOP_DIST = 15
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 140
@@ -69,22 +69,18 @@ class Piggy(pigo.Pigo):
              self.to_the_left()
              self.headbob()
 
-
     def safety_check(self):
+        self.servo(self.MIDPOINT) # look straight ahead
+        if not self.is_clear():
+            print("too dangerous to dance")
+            return False
+        self.encR(8)
+        print("safe to dance")
+        return True
 
-            self.servo(self.MIDPOINT) # look straight ahead
-            for loop in range(1):
-                if not self.is_clear():
-                    print("not working")
-                    return False
-                print("nCheck#%d" % loop + 1)
-                self.encR(8)
-            print("safe to dance")
-            return True
-
-            # turn 90 degree
-            # scan again
-            # loop 3 times
+        # turn 90 degree
+        # scan again
+        # loop 3 times
 
 
 
@@ -97,7 +93,7 @@ class Piggy(pigo.Pigo):
 
 
     def to_the_left(self):
-        for x in range(1):
+        for x in range(3):
             self.servo(130)
             self.encL(80)
             self.encL(80)
@@ -111,42 +107,22 @@ class Piggy(pigo.Pigo):
             self.encF(40)
 
     def stanky_leg(self):
-        for x in range(1):
+        for x in range(5):
             self.encL(90)
             self.encR(90)
 
 
     def headbob(self):
-         for x in range(1):
+         for x in range(4):
              self.servo(25)
              self.servo(150)
 
     def moonwalk(self):
-        for x in range(1):
+        for x in range(8):
             self.backwards()
             self.encL(16)
             self.encR(16)
             self.stop()
-
-    def safety_check(self):
-
-            self.servo(self.MIDPOINT) # look straight ahead
-            for loop in range(4):
-                if not self.is_clear():
-                    print("not working")
-                    return False
-                print("nCheck#%d" % loop + 1)
-                self.encR(8)
-            print("safe to dance")
-            return True
-
-
-
-
-
-            # turn 90 degree
-            # scan again
-            # loop 3 times
 
 
 

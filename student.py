@@ -62,15 +62,7 @@ class Piggy(pigo.Pigo):
 
         ##### WRITE YOUR FIRST PROJECT HERE
 
-        def dances(self):
-            last_scan = self.dist()
-            while True:
-                time.sleep(10)
-                if self.dist() == last_scan:
-                    break
-                else:
-                    last_scan = self.dist()
-
+        self.wait_for_turn()
         if(self.safety_check()):
              self.to_the_right()
              self.stanky_leg()
@@ -92,7 +84,15 @@ class Piggy(pigo.Pigo):
         # scan again
         # loop 3 times
 
-
+    def wait_for_turn(self):
+        last_scan = self.dist()
+        while True:
+            time.sleep(10)
+            if self.dist() == last_scan:
+                break
+            else:
+                last_scan = self.dist()
+        print("now my turn")
 
 
     def to_the_right(self):

@@ -69,6 +69,26 @@ class Piggy(pigo.Pigo):
              self.to_the_left()
              self.headbob()
 
+
+    def safety_check(self):
+
+            self.servo(self.MIDPOINT) # look straight ahead
+            for loop in range(4):
+                if not self.is_clear():
+                    print("not working")
+                    return False
+                print("nCheck#%d" % loop + 1)
+                self.encR(8)
+            print("safe to dance")
+            return True
+
+            # turn 90 degree
+            # scan again
+            # loop 3 times
+
+
+
+
     def to_the_right(self):
         for x in range(1):
             self.servo(30)
@@ -108,10 +128,8 @@ class Piggy(pigo.Pigo):
             self.encR(16)
             self.stop()
 
-
-    @property
     def safety_check(self):
-      
+
             self.servo(self.MIDPOINT) # look straight ahead
             for loop in range(4):
                 if not self.is_clear():

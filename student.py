@@ -73,7 +73,7 @@ class Piggy(pigo.Pigo):
     def safety_check(self):
 
             self.servo(self.MIDPOINT) # look straight ahead
-            for loop in range(4):
+            for loop in range(1):
                 if not self.is_clear():
                     print("not working")
                     return False

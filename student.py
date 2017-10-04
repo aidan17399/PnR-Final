@@ -71,7 +71,7 @@ class Piggy(pigo.Pigo):
              self.to_the_left()
              self.headbob()
 
-    def dance(self):
+    def dances(self):
         last_scan = self.dist()
         while True:
             time.sleep(10)
@@ -81,7 +81,7 @@ class Piggy(pigo.Pigo):
                 last_scan = self.dist()
 
 
-    
+
 
     def safety_check(self):
         self.servo(self.MIDPOINT) # look straight ahead

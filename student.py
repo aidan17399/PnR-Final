@@ -62,7 +62,14 @@ class Piggy(pigo.Pigo):
 
         ##### WRITE YOUR FIRST PROJECT HERE
 
-
+        def dances(self):
+            last_scan = self.dist()
+            while True:
+                time.sleep(10)
+                if self.dist() == last_scan:
+                    break
+                else:
+                    last_scan = self.dist()
 
         if(self.safety_check()):
              self.to_the_right()
@@ -70,17 +77,6 @@ class Piggy(pigo.Pigo):
              self.moonwalk()
              self.to_the_left()
              self.headbob()
-
-    def dances(self):
-        last_scan = self.dist()
-        while True:
-            time.sleep(10)
-            if self.dist() == last_scan:
-                break
-            else:
-                last_scan = self.dist()
-
-
 
 
     def safety_check(self):

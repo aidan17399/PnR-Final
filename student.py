@@ -135,21 +135,25 @@ class Piggy(pigo.Pigo):
             self.stop()
 
 
-
-
-
     def nav(self):
         """auto pilots and attempts to maintain original heading"""
         logging.debug("Starting the nav method")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+
         while True:
             if self.is_clear():
                 self.cruise()
             else:
-                self.encR(10)
-
+                self.servo(self.MIDPOINT + 60)
+                left_dist = self.dist()
+                self.servo(self.MIDPOINT - 60)
+                right_dist = self.dist()
+                if left_dist > right_dist:
+                    self.encL(10)
+                else:
+                    self.encR(10)
 
     def cruise(self):
         """ drive straight while path is clear"""
@@ -158,8 +162,7 @@ class Piggy(pigo.Pigo):
             time.sleep(.5)
         self.stop()
 
-
-    ####################################################
+####################################################
 ############### STATIC FUNCTIONS
 
 def error():

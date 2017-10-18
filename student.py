@@ -45,6 +45,7 @@ class Piggy(pigo.Pigo):
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
+                "o": ("obstacle count", self.obstacle_count),
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -55,6 +56,24 @@ class Piggy(pigo.Pigo):
         menu.get(ans, [None, error])[1]()
 
     # YOU DECIDE: How does your GoPiggy dance?
+
+    def obstacle_count(self):
+        """scans and estimates the number of obstacles with in sight"""
+        self.wide_scan()
+        found_something = False
+        threshold = 0
+        for distance in self.scan:
+            if distance and distance is < thershold and not found_something
+              found_something = True
+              print("object # %d found, I think" % counter)
+
+            if distance and distance > threshold and found_something:
+                found_something = False
+                counter += 1
+        print("\n------I see %d objects------\n" % counter)
+
+
+
     def dance(self):
 
         """executes a series of methods that add up to a compound dance"""

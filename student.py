@@ -71,7 +71,8 @@ class Piggy(pigo.Pigo):
                 found_something = False
                 counter += 1
         print("\n------I see %d objects------\n" % counter)
-        self.encR(8)
+        while true:
+            self.encR(8)
 
 
 

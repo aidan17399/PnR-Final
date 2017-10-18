@@ -42,10 +42,10 @@ class Piggy(pigo.Pigo):
         # You may change the menu if you'd like to add an experimental method
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
+                "o": ("Obstacle count", self.obstacle_count),
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
-                "o": ("obstacle count", self.obstacle_count),
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -57,7 +57,7 @@ class Piggy(pigo.Pigo):
 
     # YOU DECIDE: How does your GoPiggy dance?
 
-    def obstacle_count(self):
+    def Obstacle_count(self):
         """scans and estimates the number of obstacles with in sight"""
         self.wide_scan()
         found_something = False

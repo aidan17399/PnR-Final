@@ -57,7 +57,7 @@ class Piggy(pigo.Pigo):
 
     # YOU DECIDE: How does your GoPiggy dance?
 
-    def Obstacle_count(self):
+    def obstacle_count(self):
         """scans and estimates the number of obstacles with in sight"""
         self.wide_scan()
         found_something = False

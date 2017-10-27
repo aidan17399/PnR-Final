@@ -160,7 +160,7 @@ class Piggy(pigo.Pigo):
             self.stop()
 
 
-                    self.encR(10)
+            self.encR(10)
 
     def nav(self):
         """auto pilots and attempts to maintain original heading"""

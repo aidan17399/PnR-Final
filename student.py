@@ -67,11 +67,10 @@ class Piggy(pigo.Pigo):
                 found_something = True
                 print("object # %d found, I think" % counter)
                 counter += 1
-
             if distance and distance > 60 and found_something:
                 found_something = False
         print("\n------I see %d objects------\n" % counter)
-        self.encR(8)
+        self.encR(7)
 
 
 

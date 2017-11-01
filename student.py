@@ -181,6 +181,7 @@ class Piggy(pigo.Pigo):
                         self.cruise()
                         # check right and start cruise if clear
                         # look left 2 times and then drive forward
+                        # if false turn right 8 rotations then cruise 
     def cruise(self):
         """ drive straight while path is clear"""
         self.fwd()

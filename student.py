@@ -73,7 +73,6 @@ class Piggy(pigo.Pigo):
                     found_something = False
             print("\n----I SEE %d OBJECTS----\n" % inner_counter)
             outter_counter += inner_counter
-            self.encR(11)
         print("\n----IN TOTOAL I SAW %d OBJECTS----\n" % outter_counter)
 
 

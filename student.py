@@ -168,20 +168,41 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+
+        def obstacle_count(self):
+            """scans and estimates the number of obstacles within sight"""
+            outter_counter = 0
+            for x in range(4):
+                self.wide_scan()
+                found_something = False
+                inner_counter = 0
+                for distance in self.scan:
+                    if distance and distance < 60 and not found_something:
+                        found_something = True
+                        inner_counter += 1
+                        print("Object # %d found, I think" % inner_counter)
+                    if distance and distance > 60 and found_something:
+                        found_something = False
+                print("\n----I SEE %d OBJECTS----\n" % inner_counter)
+                outter_counter += inner_counter
+                self.encR(11)
+            print("\n----IN TOTOAL I SAW %d OBJECTS----\n" % outter_counter)
+
         while True:
             if self.is_clear():
                 self.cruise()
             else:
-                self.encR(8)
+                self.encR(10)
                 if self.is_clear():
                     self.cruise()
                 else:
                     self.encL(25)
                     if self.is_clear():
                         self.cruise()
-                        # check right and start cruise if clear
+
+                       # check right and start cruise if clear
                         # look left 2 times and then drive forward
-                        # if false turn right 8 rotations then cruise 
+                        # if false turn right 8 rotations then cruise
     def cruise(self):
         """ drive straight while path is clear"""
         self.fwd()

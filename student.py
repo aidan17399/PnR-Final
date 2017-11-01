@@ -60,7 +60,7 @@ class Piggy(pigo.Pigo):
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
         outter_counter = 0
-        for x in range():
+        for x in range(1):
             self.wide_scan()
             found_something = False
             inner_counter = 0

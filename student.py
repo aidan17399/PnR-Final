@@ -169,33 +169,16 @@ class Piggy(pigo.Pigo):
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
 
-        def obstacle_count(self):
-            """scans and estimates the number of obstacles within sight"""
-            outter_counter = 0
-            for x in range(4):
-                self.wide_scan()
-                found_something = False
-                inner_counter = 0
-                for distance in self.scan:
-                    if distance and distance < 60 and not found_something:
-                        found_something = True
-                        inner_counter += 1
-                        print("Object # %d found, I think" % inner_counter)
-                    if distance and distance > 60 and found_something:
-                        found_something = False
-                print("\n----I SEE %d OBJECTS----\n" % inner_counter)
-                outter_counter += inner_counter
-                self.encR(11)
-            print("\n----IN TOTOAL I SAW %d OBJECTS----\n" % outter_counter)
-
         while True:
             if self.is_clear():
                 self.cruise()
             else:
+                def obstacle_count(self)
                 self.encR(10)
                 if self.is_clear():
                     self.cruise()
                 else:
+                    self.obstacle_count()
                     self.encL(25)
                     if self.is_clear():
                         self.cruise()

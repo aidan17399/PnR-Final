@@ -43,6 +43,7 @@ class Piggy(pigo.Pigo):
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
                 "o": ("obstacle count", self.obstacle_count),
+                "t": ("test restore heading" test_restore_heading())
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
@@ -75,10 +76,6 @@ class Piggy(pigo.Pigo):
             outter_counter += inner_counter
         print("\n----IN TOTOAL I SAW %d OBJECTS----\n" % outter_counter)
 
-
-
-
-
     def dance(self):
 
         """executes a series of methods that add up to a compound dance"""
@@ -93,7 +90,6 @@ class Piggy(pigo.Pigo):
              self.moonwalk()
              self.to_the_left()
              self.headbob()
-
 
     def safety_check(self):
         self.servo(self.MIDPOINT) # look straight ahead
@@ -118,20 +114,17 @@ class Piggy(pigo.Pigo):
                 last_scan = self.dist()
         print("now my turn")
 
-
     def to_the_right(self):
         for x in range(1):
             self.servo(30)
             self.encR(80)
             self.encR(80)
 
-
     def to_the_left(self):
         for x in range(3):
             self.servo(130)
             self.encL(80)
             self.encL(80)
-
 
     def backwards(self):
         for x in range(1):
@@ -144,7 +137,6 @@ class Piggy(pigo.Pigo):
         for x in range(5):
             self.encL(90)
             self.encR(90)
-
 
     def headbob(self):
          for x in range(4):
@@ -161,6 +153,26 @@ class Piggy(pigo.Pigo):
 
             self.encR(10)
 
+    def restore_heading(self):
+
+       """Uses self.turn_track to reorient to original heading"""
+
+        print("restoring heading")
+        if self.turn_track > 0:
+            self.encL(abs(self.turn_track))
+        elif self.turn_track < 0:
+            self.encR(abs(self.turn_track))
+
+    def test_restore_heading(self):
+        self.encR(5)
+        self.encL(14)
+        self.encR(10)
+        self.encR(10)
+        self.encL(7)
+        self.restore_heading()
+
+
+
     def nav(self):
         """auto pilots and attempts to maintain original heading"""
         logging.debug("Starting the nav method")
@@ -170,6 +182,8 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
+            else:
+            self.encB(4)
             else:
                 self.encR(10)
                 if self.is_clear():

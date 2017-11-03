@@ -157,7 +157,7 @@ class Piggy(pigo.Pigo):
 
        """Uses self.turn_track to reorient to original heading"""
 
-        print("restoring heading")
+        print ("restoring heading")
         if self.turn_track > 0:
             self.encL(abs(self.turn_track))
         elif self.turn_track < 0:

@@ -43,7 +43,7 @@ class Piggy(pigo.Pigo):
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
                 "o": ("obstacle count", self.obstacle_count),
-                "t": ("test restore heading" test_restore_heading())
+                "t": ("test restore heading" test_restore_heading)
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)

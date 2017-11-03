@@ -187,10 +187,10 @@ class Piggy(pigo.Pigo):
                 self.encR(10)
                 if self.is_clear():
                     self.cruise()
-                else:
-                    self.encL(25)
-                    if self.is_clear():
-                        self.cruise()
+            else:
+                self.encL(25)
+                if self.is_clear():
+                    self.cruise()
 
                        # check right and start cruise if clear
                        # look left 2 times and then drive forward

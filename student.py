@@ -154,10 +154,9 @@ class Piggy(pigo.Pigo):
             self.encR(10)
 
     def restore_heading(self):
+        """Uses self.turn_track to reorient to original heading"""
 
-       """Uses self.turn_track to reorient to original heading"""
-
-        print ("restoring heading")
+        print("restoring heading")
         if self.turn_track > 0:
             self.encL(abs(self.turn_track))
         elif self.turn_track < 0:
@@ -194,8 +193,8 @@ class Piggy(pigo.Pigo):
                         self.cruise()
 
                        # check right and start cruise if clear
-                        # look left 2 times and then drive forward
-                        # if false turn right 8 rotations then cruise
+                       # look left 2 times and then drive forward
+                       # if false turn right 8 rotations then cruise
     def cruise(self):
         """ drive straight while path is clear"""
         self.fwd()
@@ -203,7 +202,7 @@ class Piggy(pigo.Pigo):
             time.sleep(.5)
         self.stop()
 
-########## STATIC FUNCTIONS
+      ########## STATIC FUNCTIONS
 
 def error():
     """records general, less specific error"""

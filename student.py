@@ -179,21 +179,20 @@ class Piggy(pigo.Pigo):
         self.obstacle_count()
         # counts obstacles before beginning nav
 
-    while True:
-        if self.is_clear():
-            self.cruise()
-        else:
-           self.encB(5)
-           self.encR(8)
+     while True:
             if self.is_clear():
                 self.cruise()
             else:
-                self.encB(4)
-                # backs up to scan surroundings and find clear path
-                self.encL(27)
+                self.encR(8)
                 if self.is_clear():
                     self.cruise()
-
+                else:
+                    self.encB(4)
+                    # backs up to scan surroundings and find clear path
+                    self.encL(27)
+                    if self.is_clear():
+                        self.cruise()
+                        self.restore_heading()
                     # check right and go if clear
                     # look left twice and then go
                     # goes back to its original forward track

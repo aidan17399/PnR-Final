@@ -184,7 +184,7 @@ class Piggy(pigo.Pigo):
             self.cruise()
         else:
            self.encB(5)
-            self.encR(8)
+           self.encR(8)
             if self.is_clear():
                 self.cruise()
             else:

@@ -197,12 +197,6 @@ class Piggy(pigo.Pigo):
                     # look left twice and then go
                     # goes back to its original forward track
 
-    def cruise_turn(self):
-        """ drive straight while path is clear"""
-        self.right_rot()
-        while self.dist() < self.SAFE_STOP_DIST:
-            time.sleep(.1)
-        self.stop()
 
     def cruise(self):
         """ drive straight while path is clear"""

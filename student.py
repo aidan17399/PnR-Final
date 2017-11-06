@@ -179,7 +179,7 @@ class Piggy(pigo.Pigo):
         self.obstacle_count()
         # counts obstacles before beginning nav
 
-     while True:
+    while True:
             if self.is_clear():
                 self.cruise()
             else:

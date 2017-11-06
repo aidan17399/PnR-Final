@@ -184,22 +184,9 @@ class Piggy(pigo.Pigo):
             else:
                 self.cruise_turn()
                 # double check
-                '''            
-                "check both ways then go through plus if to close then back up "
+
                 self.encB(4)
                 self.encR(8)
-                if self.is_clear():
-                    self.cruise()
-                else:
-                    self.encB(4)
-                    # backs up to scan
-                    self.encL(27)
-                    if self.is_clear():
-                        self.cruise()
-                        # check right and go if clear
-                        # look left twice and then go
-                        # goes back to its original forward track
-            '''
 
     def cruise_turn(self):
         """ drive straight while path is clear"""

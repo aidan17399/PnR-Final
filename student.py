@@ -176,17 +176,19 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+        self.obstacle_count()
+
         while True:
             if self.is_clear():
                 self.cruise()
             else:
-                self.encB(4)
-                self.encR(8)
+                self.encB(6)
+                self.encR(10)
                 if self.is_clear():
                     self.cruise()
                 else:
                     self.encB()
-                    self.encL(27)
+                    self.encL(7)
                     if self.is_clear():
                         self.cruise()
                         # check right and go right if clear

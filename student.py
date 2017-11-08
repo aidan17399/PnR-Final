@@ -43,7 +43,7 @@ class Piggy(pigo.Pigo):
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
                 "o": ("obstacle count", self.obstacle_count),
-                "t": ("test restore heading", self.test_restore_heading),
+                "t": ("test smoothL", self.smoothL),
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
@@ -183,13 +183,14 @@ class Piggy(pigo.Pigo):
             else:
                 if self.dist() < 20:
                     self.encB(7)
-                    self.encR(12)
+                    self.encR(15)
 
                 if self.is_clear():
                     self.cruise()
                 else:
                     self.encB(5)  # do I need this?
                     self.restore_heading()
+
                     self.encL(12)
 
 
@@ -200,13 +201,50 @@ class Piggy(pigo.Pigo):
             time.sleep(.5)
         self.stop()
 
-      ########## STATIC FUNCTIONS
+    def smoothR(self, x = 100):
+        count = 0
+        found_it = False
+        self.set_speed(80, 80)
+        self.right_rot()
+        while True:
+            if self.dist() > x:
+                count += 1
+            elif found_it:
+                self.stop()
+                self.encL(3)
+            else:
+                count = 0
+
+            if count > 3:
+                found_it = True
+            time.sleep(.1)
+
+    def smoothL(self, x=100):
+        count = 0
+        found_it = False
+        self.set_speed(80, 80)
+        self.left_rot()
+        while True:
+            if self.dist() > x:
+                count += 1
+            elif found_it:
+                self.stop()
+                self.encR(3)
+            else:
+                count = 0
+
+            if count > 3:
+                found_it = True
+            time.sleep(.1)
+
+
+########## STATIC FUNCTIONS
+
 
 def error():
     """records general, less specific error"""
     logging.error("ERROR")
     print('ERROR')
-
 
 def quit_now():
     """shuts down app"""

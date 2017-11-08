@@ -181,15 +181,15 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             else:
-                if self.dist() < 15:
-                    self.encB(4)
-                    self.encR(10)
+                if self.dist() < 10:
+                    self.encB(5)
+                    self.encR(15)
 
                 if self.is_clear():
                     self.cruise()
                 else:
-                    self.encB(4)  # do I need this?
-                    self.encL(10)
+                    self.encB(5)  # do I need this?
+                    self.encL(15)
 
 
     def cruise(self):

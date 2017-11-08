@@ -181,7 +181,7 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             else:
-                if self.dist() < 10:
+                if self.dist() < 20:
                     self.encB(5)
                     self.encR(15)
 

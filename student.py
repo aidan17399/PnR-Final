@@ -223,8 +223,9 @@ class Piggy(pigo.Pigo):
         count = 0
         found_it = False
         self.set_speed(80, 80)
-        self.left_rot()
+
         while True:
+            self.left_rot()
             if self.dist() > x:
                 count += 1
             elif found_it:

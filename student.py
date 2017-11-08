@@ -230,12 +230,12 @@ class Piggy(pigo.Pigo):
             elif found_it:
                 self.stop()
                 self.encR(3)
+                break
             else:
                 count = 0
-
             if count > 3:
                 found_it = True
-            time.sleep(.1)
+            time.sleep(.3)
 
 
 ########## STATIC FUNCTIONS

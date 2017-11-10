@@ -24,9 +24,9 @@ class Piggy(pigo.Pigo):
         self.SAFE_STOP_DIST = 20
         self.HARD_STOP_DIST = 20
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.LEFT_SPEED = 165
+        self.LEFT_SPEED = 135
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.RIGHT_SPEED = 170
+        self.RIGHT_SPEED = 140
         # This one isn't capitalized because it changes during runtime, the others don't
         self.turn_track = 0
         # Our scan list! The index will be the degree and it will store distance
@@ -219,7 +219,7 @@ class Piggy(pigo.Pigo):
     def smoothR(self, x = 100):
         count = 0
         found_it = False
-        self.set_speed(80, 80)
+        self.set_speed(100, 100)
         self.right_rot()
         while True:
             if self.dist() > x:
@@ -227,17 +227,20 @@ class Piggy(pigo.Pigo):
             elif found_it:
                 self.stop()
                 self.encL(3)
+                break
             else:
                 count = 0
 
             if count > 3:
                 found_it = True
             time.sleep(.1)
+        self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
+
 
     def smoothL(self, x=100):
         count = 0
         found_it = False
-        self.set_speed(80, 80)
+        self.set_speed(100, 100)
 
         while True:
             self.left_rot()
@@ -252,6 +255,7 @@ class Piggy(pigo.Pigo):
             if count > 3:
                 found_it = True
             time.sleep(.3)
+        self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
 
 ########## STATIC FUNCTIONS

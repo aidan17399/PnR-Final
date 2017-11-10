@@ -1,9 +1,10 @@
 import pigo
 import time  # import just in case students need
 import random
-
+import datetime
 # setup logs
 import logging
+
 LOG_LEVEL = logging.INFO
 LOG_FILE = "/home/pi/PnR-Final/log_robot.log"  # don't forget to make this file!
 LOG_FORMAT = "%(asctime)s %(levelname)s %(message)s"
@@ -16,6 +17,7 @@ class Piggy(pigo.Pigo):
     def __init__(self):
         """The robot's constructor: sets variables and runs menu loop"""
         print("I have been instantiated!")
+        self.start_time = datetime.datetime.utcnow()
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 90
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
@@ -176,6 +178,9 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+        right_now = datetime.datetime.utcnow()
+        difference = (right_now - self.start_time).seconds
+        print("it took you %d seconds to run this" % difference)
         self.obstacle_count()
         while True:
             if self.is_clear():
@@ -188,11 +193,21 @@ class Piggy(pigo.Pigo):
                 if self.is_clear():
                     self.cruise()
                 else:
-                    self.encB(5)  # do I need this?
+                    self.encB(5)
                     self.restore_heading()
-
                     self.encL(12)
 
+    def smooth_turn(self):
+        self.right_rot()
+        start = datetime.datetime.utcnow()
+        while True:
+            if self.dist() > 100:
+                self.stop()
+                print("i think i have found a good path")
+            elif datetime.datetime.utcnow() - start > datetime.timedelta(seconds):
+                self.stop()
+                print("i give up")
+            time.sleep(2)
 
     def cruise(self):
         """ drive straight while path is clear"""
@@ -261,3 +276,5 @@ except (KeyboardInterrupt, SystemExit):
     pigo.stop_now()
 except Exception as ee:
     logging.error(ee.__str__())
+
+

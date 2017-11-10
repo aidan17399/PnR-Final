@@ -191,6 +191,8 @@ class Piggy(pigo.Pigo):
                 self.encB(8)  # backs up robot if it still cannot find clear path and retests right and left
                 self.encR(8)  # turns right to find clear path
                 self.encL(16)
+                self.restore_heading()
+                self.encR(8)
                 if self.is_clear():  # clear path found to the right
                     self.cruise()  # robot moves forward in clear direction
                 else:

@@ -185,7 +185,7 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():  # no obstacles are detected by the robot
                 print("I am going to move forward!")
-                self.cruise()  # moves robot forward due to clear path
+                self.smart_cruise() 
             else:  # obstacle is detected
                 print("Ut oh! Something is blocking my path!")
                 self.encB(5)  # backs up
@@ -196,7 +196,8 @@ class Piggy(pigo.Pigo):
                     self.encL(10)  # turns left to find clear path if no clear path to the right
                     if self.is_clear():  # path is clear
                         self.cruise()  # robot moves forward in clear direction
-            self.restore_heading()  # reorients robot to original heading
+                        if self.encR(6):
+                            T
 
     def smooth_turn(self):
         self.right_rot()
@@ -258,8 +259,25 @@ class Piggy(pigo.Pigo):
             time.sleep(.3)
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
+    def smart_cruise(self):
+        MAX_SPEED = 200
+        MID_SPEED = 150
+        LOW_SPEED = 100
+        self.fwd()
+        while True:
+            dis = self.dist()
+            if dis < self.HARD_STOP_DIST:
+                break
+            elif dis > 200:
+                self.set_speed(MAX_SPEED-5, MAX_SPEED)
+            elif dis > 100:
+                self.set_speed(MID_SPEED-4, MID_SPEED)
+            else:
+                self.set_speed(LOW_SPEED-3, LOW_SPEED)
+            time.sleep(.01)  # just to slow down the loop a bit
+        self.stop()
+        self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
-########## STATIC FUNCTIONS
 
 
 def error():
@@ -270,9 +288,6 @@ def error():
 def quit_now():
     """shuts down app"""
     raise SystemExit
-
-##################################################################
-######## The app starts right here when we instantiate our GoPiggy
 
 
 try:

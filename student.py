@@ -195,7 +195,7 @@ class Piggy(pigo.Pigo):
                 else:
                     self.encL(10)  # turns left to find clear path if no clear path to the right
                     if self.is_clear():  # path is clear
-                        self.smart_cruise() # robot moves forward in clear direction
+                            self.smart_cruise() # robot moves forward in clear direction
                         if self.encR(6):
 
 

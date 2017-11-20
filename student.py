@@ -185,17 +185,17 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():  # no obstacles are detected by the robot
                 print("I am going to move forward!")
-                self.smart_cruise()
+                self.cruise()
             else:  # obstacle is detected
                 print("Ut oh!")
                 self.encB(5)  # backs up
                 self.smoothR()  # turns right
                 if self.is_clear():  # clear path found to the right
-                    self.smart_cruise()# robot moves forward in clear direction
+                    self.cruise()# robot moves forward in clear direction
                 else:
-                    self.smoothL()  # turns left to find clear path if no clear path to the right
+                    self.encL()  # turns left to find clear path if no clear path to the right
                     if self.is_clear():  # path is clear
-                        self.smart_cruise() # robot moves forward in clear direction
+                        self.cruise() # robot moves forward in clear direction
 
 
 
@@ -211,19 +211,18 @@ class Piggy(pigo.Pigo):
         count = 0
         found_it = False
         self.set_speed(100, 100)
-        self.encR(8)
-        self.encL(16)
-        while True:
+        self.right_rot()
+       while True:
             if self.dist() > x:
                 count += 1
             elif found_it:
                 self.stop()
-                self.smart_cruise()
+                self.cruise()
                 break
             else:
                 count = 0
 
-            if count > 3:
+            if count > 3:1
                 found_it = True
             time.sleep(.1)
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)

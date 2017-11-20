@@ -199,27 +199,7 @@ class Piggy(pigo.Pigo):
                         if self.encR(6):
 
 
-
     
-
-
-
-
-
-
-
-    def smooth_turn(self):
-        self.right_rot()
-        start = datetime.datetime.utcnow()
-        while True:
-            if self.dist() > 100:
-                self.stop()
-                print("i think i have found a good path")
-            elif datetime.datetime.utcnow() - start > datetime.timedelta(seconds):
-                self.stop()
-                print("i give up")
-            time.sleep(2)
-
     def cruise(self):
         """ drive straight while path is clear"""
         self.fwd()

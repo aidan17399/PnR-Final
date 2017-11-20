@@ -218,7 +218,7 @@ class Piggy(pigo.Pigo):
                 count += 1
             elif found_it:
                 self.stop()
-                self.encL(3)
+                self.smart_cruise()
                 break
             else:
                 count = 0

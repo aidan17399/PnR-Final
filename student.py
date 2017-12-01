@@ -267,6 +267,23 @@ class Piggy(pigo.Pigo):
         self.stop()
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
+    def security_check
+        encR(1)
+        self.clear()
+        self.cruise()
+            else:
+                encL(2)
+                self.clear()
+                self.cruise()
+                    else:
+                        encR(4)
+                        self.clear()
+                        self.cruise()
+                            else:
+                                encR(6)
+                                self.clear()
+                                self.cruise()
+
 
 
 def error():

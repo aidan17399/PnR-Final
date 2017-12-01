@@ -191,11 +191,11 @@ class Piggy(pigo.Pigo):
                 self.encB(5)  # backs up
                 self.smoothR(1)  # turns right
                 if self.is_clear():  # clear path found to the right
-                    self.cruise()# robot moves forward in clear direction
+                    self.smart_cruise()# robot moves forward in clear direction
                 else:
                     self.encL(8)  # turns left to find clear path if no clear path to the right
                     if self.is_clear():  # path is clear
-                        self.cruise() # robot moves forward in clear direction
+                        self.smart_cruise() # robot moves forward in clear direction
 
 
 
@@ -211,10 +211,10 @@ class Piggy(pigo.Pigo):
         count = 0
         found_it = False
         self.set_speed(100, 100)
-        self.right_rot()
+        self.encR(4)
 
         while True:
-            self.right_rot()
+            self.encR(4)
             if self.dist() > x:
                 count += 1
             elif found_it:

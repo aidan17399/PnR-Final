@@ -213,7 +213,7 @@ class Piggy(pigo.Pigo):
         self.set_speed(100, 100)
         self.right_rot()
        while True:
-            if self.dist() > x:
+        if self.dist() > x:
             count += 1
             elif found_it:
                 self.stop()

@@ -186,7 +186,7 @@ class Piggy(pigo.Pigo):
                if self.is_clear():  # no obstacles are detected by the robot
                 print("I am going to move forward!")
                 self.cruise()
-            else:  # obstacle is detected
+            else: 
                 print("Ut oh!")
                 self.encB(3)  # backs up
                 self.encR(3)  # turns right
@@ -267,9 +267,9 @@ class Piggy(pigo.Pigo):
         self.stop()
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
-    def security_check  # pulse check
-        encR(1) # looks right a little
-        self.clear() # checks to see if clear
+    def security_check(self): # pulse check
+        self.encR(1) # looks right a little
+        self.is_clear() # checks to see if clear
         self.cruise() #if clear go straight
             else: # redoing same thing opposite
                 encL(2)

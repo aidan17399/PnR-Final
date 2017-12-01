@@ -189,7 +189,7 @@ class Piggy(pigo.Pigo):
             else:  # obstacle is detected
                 print("Ut oh!")
                 self.encB(5)  # backs up
-                self.smoothR(1)  # turns right
+                self.encR(4)  # turns right
                 if self.is_clear():  # clear path found to the right
                     self.smart_cruise()# robot moves forward in clear direction
                 else:
@@ -227,6 +227,7 @@ class Piggy(pigo.Pigo):
                 found_it = True
             time.sleep(.3)
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
+
     def smoothL(self, x=100):
         count = 0
         found_it = False

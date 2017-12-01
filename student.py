@@ -183,13 +183,13 @@ class Piggy(pigo.Pigo):
         difference = (right_now - self.start_time).seconds
         print("It took you %d seconds to run this" % difference)
         while True:
-            if self.is_clear():  # no obstacles are detected by the robot
+               if self.is_clear():  # no obstacles are detected by the robot
                 print("I am going to move forward!")
                 self.cruise()
             else:  # obstacle is detected
                 print("Ut oh!")
-                self.encB(5)  # backs up
-                self.encR(4)  # turns right
+                self.encB(3)  # backs up
+                self.encR(3)  # turns right
                 if self.is_clear():  # clear path found to the right
                     self.smart_cruise()# robot moves forward in clear direction
                 else:
@@ -267,11 +267,11 @@ class Piggy(pigo.Pigo):
         self.stop()
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
-    def security_check
-        encR(1)
-        self.clear()
-        self.cruise()
-            else:
+    def security_check  # pulse check
+        encR(1) # looks right a little
+        self.clear() # checks to see if clear
+        self.cruise() #if clear go straight
+            else: # redoing same thing opposite
                 encL(2)
                 self.clear()
                 self.cruise()

@@ -214,7 +214,7 @@ class Piggy(pigo.Pigo):
         self.right_rot()
        while True:
             if self.dist() > x:
-                count += 1
+            count += 1
             elif found_it:
                 self.stop()
                 self.cruise()

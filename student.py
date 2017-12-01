@@ -212,22 +212,21 @@ class Piggy(pigo.Pigo):
         found_it = False
         self.set_speed(100, 100)
         self.right_rot()
-       while True:
-        if self.dist() > x:
-            count += 1
+
+        while True:
+            self.right_rot()
+            if self.dist() > x:
+                count += 1
             elif found_it:
                 self.stop()
-                self.cruise()
+                self.encL(3)
                 break
             else:
                 count = 0
-
-            if count > 3:1
+            if count > 3:
                 found_it = True
-            time.sleep(.1)
+            time.sleep(.3)
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
-
-
     def smoothL(self, x=100):
         count = 0
         found_it = False

@@ -264,22 +264,6 @@ class Piggy(pigo.Pigo):
         self.stop()
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
-    def security_check(self): # pulse check
-        self.encR(1) # looks right a little
-        self.is_clear() # checks to see if clear
-        self.cruise() #if clear go straight
-            else: # redoing same thing opposite
-                encL(2)
-                self.clear()
-                self.cruise()
-                    else:
-                        encR(4)
-                        self.clear()
-                        self.cruise()
-                            else:
-                                encR(6)
-                                self.clear()
-                                self.cruise()
 
 
 

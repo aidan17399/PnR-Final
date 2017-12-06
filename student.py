@@ -190,9 +190,7 @@ class Piggy(pigo.Pigo):
                 print("Utoh!")
                 self.encB(3)  # backs up
                 self.encR(3)  # turns right
-                if self.is_clear():  # clear path found to the right
-                    self.smart_cruise()  # robot moves forward in clear direction
-                else:
+                if not self.is_clear():  # clear path found to the right=
                     self.encL(8)  # turns left to find clear path if no clear path to the right
                     if self.is_clear():  # path is clear
                         self.smart_cruise()  # robot moves forward in clear direction

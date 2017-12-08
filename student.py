@@ -195,9 +195,8 @@ class Piggy(pigo.Pigo):
                     if self.is_clear():  # path is clear
                         self.cruisey()  # robot moves forward in clear direction
         else:
-            if not self.is_clear():
-                self.encR(18)
                 self.encB(2)
+                self.encR(8)
                 if self.is_clear():
                     self.cruisey()
 
